@@ -26,7 +26,7 @@
     "type": "equirectangular"
   },
   "mark": {
-    "type": "geoshape", "stroke": "light grey", "strokeWidth": 0.5
+    "type": "geoshape", "stroke": "white", "strokeWidth": 0.5
     },
   "encoding": {
     "color": {
