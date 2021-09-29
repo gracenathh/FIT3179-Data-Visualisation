@@ -1,0 +1,44 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title" : {"text": "Number of Starbucks Stores at Each Region"},
+    "width": 400, "height": 300,
+    "data": {
+        "url": "https://raw.githubusercontent.com/gracenathh/FIT3179-Data-Visualisation/main/data/combined-processed.csv"
+    },
+    "transform": [
+        {"filter": "datum.TotalStore > 0"},
+        {"aggregate": [{
+            "op": "sum",
+            "field" : "TotalStore",
+            "as" : "Number of Store"
+        }],
+        "groupby": ["Region"]
+    }],
+    "layer":[{
+        "mark": {"type": "arc", "innerRadius": 40, "stroke": "#fff"}
+    },{
+        "mark": {"type": "text", "radiusOffset": 30},
+        "encoding": {
+            "text": {"field": "Number of Store", "type": "quantitative"},
+            "color": {"value": "black"},
+            "tooltip" : [
+                {"field": "Region", "type": "nominal"},
+                {"field": "Number of Store", "type": "quantitative"}
+            ]
+        }
+    }],
+    "encoding": {
+        "theta": {"field" : "Number of Store", "type" : "quantitative", "stack" : true},
+        "radius": {"field": "Number of Store", 
+                    "scale": {"type": "sqrt", "zero": true, "rangeMin": 100}},
+        "color" : {"field": "Region",
+                    "scale": {"scheme": "Greens"},
+                    "legend": null
+                },
+        "tooltip" : [
+            {"field": "Region", "type": "nominal"},
+            {"field": "Number of Store", "type": "quantitative"}
+        ]
+    }
+
+}
