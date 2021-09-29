@@ -7,69 +7,149 @@
     "url": "https://raw.githubusercontent.com/gracenathh/FIT3179-Data-Visualisation/main/data/combined-processed.csv"
     },
     "transform": [
-        {"filter": "datum.Starbucks > 0"}
+        {"filter": "datum.TotalStore > 0"},
+        {"filter": "region_selection == null || datum.Region == region_selection"}
     ],
-    "mark": "circle",
+    "params": [{
+        "name" : "region_selection",
+        "bind": {
+            "input": "select",
+            "options":[
+                null,"ASIA",
+                "COMMONWEALTH OF INDEPENDENT STATES",
+                "EASTERN EUROPE",
+                "LATIN AMERICA & CARIBBEAN",
+                "NEAR EAST",
+                "NORTHERN AFRICA",
+                "NORTHERN AMERICA",
+                "OCEANIA",
+                "SUB-SAHARAN AFRICA",
+                "WESTERN EUROPE"
+            ],
+            "labels": [
+                "Show All",
+                "ASIA",
+                "COMMONWEALTH OF INDEPENDENT STATES",
+                "EASTERN EUROPE",
+                "LATIN AMERICA & CARIBBEAN",
+                "NEAR EAST",
+                "NORTHERN AFRICA",
+                "NORTHERN AMERICA",
+                "OCEANIA",
+                "SUB-SAHARAN AFRICA",
+                "WESTERN EUROPE"
+            ],
+            "name": "Region Selection: "
+        }
+        }
+    ],
     "encoding": {
-    "x": {
-    "field": "GDP",
-    "type": "quantitative",
-    "axis": {"tickCount": 2},
-    "scale": {"type": "log", "domain": [1000, 100000]},
-    "title": "GDP per Capita"
-    },
-    "y": {
-    "field": "Starbucks",
-    "type": "quantitative",
-    "axis": {"tickCount": 4},
-    "scale": {"type": "log", "domain": [1, 20000]},
-    "title": "Number of Starbucks Store"
-    },
-    "color": {
-    "field": "Region",
-    "type": "nominal",
-    "scale": {
-        "domain": [
-        "ASIA",
-        "COMMONWEALTH OF INDEPENDENT STATES",
-        "EASTERN EUROPE",
-        "LATIN AMERICA & CARIBBEAN",
-        "NEAR EAST",
-        "NORTHERN AFRICA",
-        "NOTHERN AMERICA",
-        "OCEANIA",
-        "SUB-SAHARAN AFRICA",
-        "WESTERN EUROPE"
-        ],
-        "range": [
-        "#fed474",
-        "#009a71",
-        "#d13c46",
-        "#f53a6b",
-        "#a255ae",
-        "#758fc0",
-        "#fdba9f",
-        "#c60729",
-        "#bba984",
-        "#c5c1c2"
-        ]
+        "x": {
+        "field": "GDP",
+        "type": "quantitative",
+        "axis": {"tickCount": 2},
+        "scale": {"type": "log", "domain": [1000, 100000]},
+        "title": "GDP per Capita"
+        },
+        "y": {
+        "field": "TotalStore",
+        "type": "quantitative",
+        "axis": {"tickCount": 5},
+        "scale": {"type": "log", "domain": [1, 100000]},
+        "title": "Number of Starbucks Store"
         }
     },
-    "size": {
-    "field": "Population",
-    "type": "quantitative",
-    "scale": {
-        "type": "threshold",
-        "domain": [1000000, 10000000, 50000000, 100000000],
-        "range": [40, 100, 150, 200, 300]
+    "layer" : [
+        {
+            "selection": {
+                "region_highlight": {
+                "type": "multi",
+                "fields": ["Region"],
+                "bind": "legend"
+                }
+            }, 
+            "mark": "circle",
+            "encoding": {
+                "size": {
+                    "field": "Population",
+                    "type": "quantitative",
+                    "scale": {
+                        "type": "threshold",
+                        "domain": [1000000, 10000000, 50000000],
+                        "range": [40, 100, 150, 200]
+                        },
+                        "legend": {"format": ".1s"}
+                },
+                "color": {
+                    "field": "Region",
+                    "type": "nominal",
+                    "scale": {
+                        "domain": [
+                        "ASIA",
+                        "COMMONWEALTH OF INDEPENDENT STATES",
+                        "EASTERN EUROPE",
+                        "LATIN AMERICA & CARIBBEAN",
+                        "NEAR EAST",
+                        "NORTHERN AFRICA",
+                        "NORTHERN AMERICA",
+                        "OCEANIA",
+                        "SUB-SAHARAN AFRICA",
+                        "WESTERN EUROPE"
+                        ],
+                        "range": [
+                        "#fed474",
+                        "#009a71",
+                        "#d13c46",
+                        "#f53a6b",
+                        "#a255ae",
+                        "#758fc0",
+                        "#fdba9f",
+                        "#c60729",
+                        "#736240",
+                        "#949293"
+                        ]
+                    }
+                },
+                "opacity": {
+                    "condition": {"selection": "region_highlight", "value": 0.6},
+                    "value" : 0.08
+                },
+                "tooltip": [
+                    {"field": "Country", "type": "nominal"},
+                    {"field": "Population", "type": "quantitative", "format": ","},
+                    {"field": "GDP", "type": "quantitative", "format": ",", "title" : "GDP per Capita"},
+                    {"field": "TotalStore", "type": "quantitative", "title":"Sum of Store"}
+                ]
+            }
         },
-        "legend": {"format": ".1s"}
-    },
-    "tooltip": [
-        {"field": "Country", "type": "nominal"},
-        {"field": "Population", "type": "quantitative", "format": ","},
-        {"field": "Starbucks", "type": "quantitative"}
-        ]
-       
-    }
-   }   
+        {
+            "mark" : {
+                "type": "text",
+                "align" : "right",
+                "baseline" : "middle",
+                "dx" : -12,
+                "fontSize": 11.5,
+                "fontStyle": "italic"
+            },
+            "encoding": {
+                "text": {"field": "Country", "type": "nominal"},
+                "color": {"value": "black"},
+                "opacity": {
+                "condition": {
+                "test": "datum['Country'] == 'Australia' || datum['Country'] == 'Malaysia' || datum['Country'] == 'Indonesia' || datum['Country'] == 'New Zealand' || datum['Country'] == 'Canada' || datum['Country'] == 'China' || datum['Country'] == 'United States of America'",
+                "value": 1
+                },
+                "value": 0
+            },
+            "tooltip": [
+                {"field": "Country", "type": "nominal"},
+                {"field": "Population", "type": "quantitative", "format": ","},
+                {"field": "GDP", "type": "quantitative", "format": ",", "title" : "GDP per Capita"},
+                {"field": "TotalStore", "type": "quantitative", "title":"Sum of Store"}
+            ]
+
+            }
+        }
+
+    ]
+}  

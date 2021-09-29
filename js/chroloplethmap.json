@@ -17,10 +17,10 @@
             "url": "https://raw.githubusercontent.com/gracenathh/FIT3179-Data-Visualisation/main/data/combined-processed.csv"
           },
           "key": "Country",
-          "fields": ["Starbucks"]
+          "fields": ["TotalStore"]
         }
       },
-      {"calculate":"datum.Starbucks", "as" : "Starbucks Count"}
+      {"calculate":"datum.TotalStore", "as" : "Starbucks Count"}
     ],
     "projection": {
       "type": "equirectangular"
