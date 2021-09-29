@@ -1,0 +1,75 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 400,
+    "title": "GDP x Population x Number of Starbucks",
+    "data": {
+    "url": "https://raw.githubusercontent.com/gracenathh/FIT3179-Data-Visualisation/main/data/combined-processed.csv"
+    },
+    "transform": [
+        {"filter": "datum.Starbucks > 0"}
+    ],
+    "mark": "circle",
+    "encoding": {
+    "x": {
+    "field": "GDP",
+    "type": "quantitative",
+    "axis": {"tickCount": 2},
+    "scale": {"type": "log", "domain": [1000, 100000]},
+    "title": "GDP per Capita"
+    },
+    "y": {
+    "field": "Starbucks",
+    "type": "quantitative",
+    "axis": {"tickCount": 4},
+    "scale": {"type": "log", "domain": [1, 20000]},
+    "title": "Number of Starbucks Store"
+    },
+    "color": {
+    "field": "Region",
+    "type": "nominal",
+    "scale": {
+        "domain": [
+        "ASIA",
+        "COMMONWEALTH OF INDEPENDENT STATES",
+        "EASTERN EUROPE",
+        "LATIN AMERICA & CARIBBEAN",
+        "NEAR EAST",
+        "NORTHERN AFRICA",
+        "NOTHERN AMERICA",
+        "OCEANIA",
+        "SUB-SAHARAN AFRICA",
+        "WESTERN EUROPE"
+        ],
+        "range": [
+        "#fed474",
+        "#009a71",
+        "#d13c46",
+        "#f53a6b",
+        "#a255ae",
+        "#758fc0",
+        "#fdba9f",
+        "#c60729",
+        "#bba984",
+        "#c5c1c2"
+        ]
+        }
+    },
+    "size": {
+    "field": "Population",
+    "type": "quantitative",
+    "scale": {
+        "type": "threshold",
+        "domain": [1000000, 10000000, 50000000, 100000000],
+        "range": [40, 100, 150, 200, 300]
+        },
+        "legend": {"format": ".1s"}
+    },
+    "tooltip": [
+        {"field": "Country", "type": "nominal"},
+        {"field": "Population", "type": "quantitative", "format": ","},
+        {"field": "Starbucks", "type": "quantitative"}
+        ]
+       
+    }
+   }   
