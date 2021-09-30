@@ -20,12 +20,12 @@
 </head>
 <body>
 
-  <div id="iso_map"></div>
+  <div id="bargraph"></div>
 
   <script type="text/javascript">
   
-    var spec2 = "js/isotype.json";
-    vegaEmbed('#iso_map', spec2).then(function(result) {
+    var spec2 = "js/bar.json";
+    vegaEmbed('#bargraph', spec2).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
   </script>
@@ -49,11 +49,11 @@
     }).catch(console.error);
   </script>
 
-  <div id = "bar_chart"></div>
+  <div id = "radial_plot"></div>
 
   <script type = "text/javascript">
-    var vg_1 = "js/bargraph.json";
-    vegaEmbed("#bar_chart", vg_1).then(function(result) {
+    var vg_1 = "js/radial.json";
+    vegaEmbed("#radial_plot", vg_1).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
   </script>

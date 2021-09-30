@@ -1,0 +1,21 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title" : {"text": "Ownership Type Proportion"},
+    "width": 200,
+    "height": 300,
+    "data": {
+        "url": "https://raw.githubusercontent.com/gracenathh/FIT3179-Data-Visualisation/main/data/ownershiptype.csv"
+    },
+    "mark":"bar",
+    "encoding": {
+        "x":{"field":"Ownership Type", "type":"nominal"},
+        "y":{"field":"Count", "type": "quantitative"},
+        "color" : {"field": "Ownership Type",
+            "scale": {"scheme": "Greens"}
+        },
+        "tooltip" : [
+            {"field": "Ownership Type", "type": "nominal"},
+            {"field": "Count", "type": "quantitative"}
+        ]
+    }
+}
