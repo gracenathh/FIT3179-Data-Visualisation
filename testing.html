@@ -19,6 +19,15 @@
   </style>
 </head>
 <body>
+  <div id="heatmap"></div>
+
+  <script type="text/javascript">
+  
+    var spec2 = "js/heatmap.json";
+    vegaEmbed('#heatmap', spec2).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
 
   <div id="bargraph"></div>
 
