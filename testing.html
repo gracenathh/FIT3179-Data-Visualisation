@@ -19,34 +19,44 @@
   </style>
 </head>
 <body>
+
+  <div id="iso_map"></div>
+
+  <script type="text/javascript">
   
-<div id="choropleth_map"></div>
+    var spec2 = "js/isotype.json";
+    vegaEmbed('#iso_map', spec2).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
+  
+  <div id="choropleth_map"></div>
 
-<script type="text/javascript">
-  var spec2 = "js/chroloplethmap.json";
-  vegaEmbed('#choropleth_map', spec2).then(function(result) {
+  <script type="text/javascript">
+    var spec2 = "js/chroloplethmap.json";
+    vegaEmbed('#choropleth_map', spec2).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
+
+  <div id="scatter_plot"></div>
+
+  <script type="text/javascript">
+
+    var spec2 = "js/bubbleplot.json";
+    vegaEmbed('#scatter_plot', spec2).then(function(result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
+
+  <div id = "bar_chart"></div>
+
+  <script type = "text/javascript">
+    var vg_1 = "js/bargraph.json";
+    vegaEmbed("#bar_chart", vg_1).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-</script>
-
-<div id="scatter_plot"></div>
-
-<script type="text/javascript">
-
-  var spec2 = "js/bubbleplot.json";
-  vegaEmbed('#scatter_plot', spec2).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-</script>
-
-<div id = "bar_chart"></div>
-
-<script type = "text/javascript">
-  var vg_1 = "js/bargraph.json";
-  vegaEmbed("#bar_chart", vg_1).then(function(result) {
-  // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(console.error);
-</script>
+    }).catch(console.error);
+  </script>
 
 </body>
 </html>
