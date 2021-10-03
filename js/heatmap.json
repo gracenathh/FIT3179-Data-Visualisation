@@ -2,7 +2,9 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Literacy Rate x People Having Phone x Number of Sbux",
     "data": {
-        "url": "https://raw.githubusercontent.com/gracenathh/FIT3179-Data-Visualisation/main/data/combined-processed.csv"
+        "url": "https://raw.githubusercontent.com/gracenathh/FIT3179-Data-Visualisation/main/data/combined-processed.csv",
+        "format": {"type": "csv",
+                    "parse": {"Phones/1K": "number","Literacy" : "number"}}
     },"width": 750,
     "height": 500,
     "transform": [
