@@ -23,7 +23,7 @@
             "color": {"value": "black"},
             "tooltip" : [
                 {"field": "Region", "type": "nominal"},
-                {"field": "Number of Store", "type": "quantitative"}
+                {"field": "Number of Store", "type": "quantitative", "format": ","}
             ]
         }
     }],
@@ -37,7 +37,7 @@
                 },
         "tooltip" : [
             {"field": "Region", "type": "nominal"},
-            {"field": "Number of Store", "type": "quantitative"}
+            {"field": "Number of Store", "type": "quantitative", "format": ","}
         ]
     }
 
