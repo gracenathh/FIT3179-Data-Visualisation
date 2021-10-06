@@ -1,0 +1,55 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title" : {"text": "Number of Starbucks Stores at Each Region"},
+    "width": 300,
+    "height": 300,
+    "data": {
+        "url": "https://raw.githubusercontent.com/gracenathh/FIT3179-Data-Visualisation/main/data/combined-processed.csv"
+    },
+    "transform": [
+        {"filter": "datum.TotalStore > 0"},
+        {"aggregate": [{
+            "op": "sum",
+            "field" : "TotalStore",
+            "as" : "Number of Store"
+        }],
+        "groupby": ["Region"]
+    }],
+    "mark":{"type": "bar", "width": {"band": 1}},
+    "encoding": {
+        "x":{"field":"Region", "type":"nominal"},
+        "y":{"field":"Number of Store", "type": "quantitative"},
+        "color" : {"field": "Region",
+        "scale": {
+            "domain": [
+                "ASIA",
+                "COMMONWEALTH OF INDEPENDENT STATES",
+                "EASTERN EUROPE",
+                "LATIN AMERICA & CARIBBEAN",
+                "NEAR EAST",
+                "NORTHERN AFRICA",
+                "NORTHERN AMERICA",
+                "OCEANIA",
+                "SUB-SAHARAN AFRICA",
+                "WESTERN EUROPE"
+            ],
+            "range": [
+                "#fed474",
+                "#ff9c38",
+                "#d13c46",
+                "#f53a6b",
+                "#a255ae",
+                "#758fc0",
+                "#009a71",
+                "#c60729",
+                "#736240",
+                "#949293"
+            ]
+        }
+        },
+        "tooltip" : [
+            {"field": "Region", "type": "nominal"},
+            {"field": "Number of Store", "type": "quantitative", "format": ","}
+        ]
+    }
+}

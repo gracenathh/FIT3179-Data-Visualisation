@@ -1,0 +1,48 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title" : {"text": "Ownership Type Proportion"},
+    "width": 400, "height": 300,
+    "data": {
+        "url": "https://raw.githubusercontent.com/gracenathh/FIT3179-Data-Visualisation/main/data/ownershiptype.csv"
+    },
+    "layer":[
+        {
+            "mark": {"type": "arc", "innerRadius": 40, "stroke": "#fff"}
+        },
+        {
+            "mark": {"type": "text"},
+            "encoding": {
+                "text": {"field": "Ownership Type", "type": "nominal"},
+                "color": {"value": "black"},
+                "tooltip" : [
+                    {"field": "Ownership Type", "type": "nominal"},
+                    {"field": "Count", "type": "quantitative", "format": ","}
+                ]
+            }
+    }],
+    "encoding": {
+        "theta": {"field" : "Count", "type" : "quantitative", "stack" : true},
+        "radius": {"field": "Count", 
+                    "scale": {"type": "sqrt", "zero": true, "rangeMin": 100}},
+        "color" : {"field": "Ownership Type", "type": "nominal",
+        "scale": {
+            "domain": [
+                "Company Owned",
+                "Franchise",
+                "Joint Venture",
+                "Licensed"
+            ],
+            "range": [
+                "#009a71",
+                "#ff9c38",
+                "#d13c46",
+                "#fed474"
+            ]
+        }},
+        "tooltip" : [
+            {"field": "Ownership Type", "type": "nominal"},
+            {"field": "Count", "type": "quantitative","format": ","}
+        ]
+    }
+
+}

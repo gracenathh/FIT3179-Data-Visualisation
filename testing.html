@@ -19,53 +19,76 @@
   </style>
 </head>
 <body>
-  <div id="heatmap"></div>
 
-  <script type="text/javascript">
+  <div id="radialplot">
+    <script type="text/javascript">
   
-    var spec2 = "js/heatmap.json";
-    vegaEmbed('#heatmap', spec2).then(function(result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
-  </script>
+      var spec2 = "js/bar-to-radial.json";
+      vegaEmbed('#radialplot', spec2).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+    </script>
+  </div>
 
-  <div id="bargraph"></div>
-
-  <script type="text/javascript">
+  <div id="bar_graph">
+    <script type="text/javascript">
   
-    var spec2 = "js/bar.json";
-    vegaEmbed('#bargraph', spec2).then(function(result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
-  </script>
+      var spec2 = "js/radial-to-bar.json";
+      vegaEmbed('#bar_graph', spec2).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+    </script>
+  </div>
+
+  <div id="heatmap">
+    <script type="text/javascript">
   
-  <div id="choropleth_map"></div>
+      var spec2 = "js/heatmap.json";
+      vegaEmbed('#heatmap', spec2).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+    </script>
+  </div>
 
-  <script type="text/javascript">
-    var spec2 = "js/chroloplethmap.json";
-    vegaEmbed('#choropleth_map', spec2).then(function(result) {
+
+  <div id="bargraph">
+    <script type="text/javascript">
+  
+      var spec2 = "js/bar.json";
+      vegaEmbed('#bargraph', spec2).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+    </script>
+  </div>
+  
+  <div id="choropleth_map">
+    <script type="text/javascript">
+      var spec2 = "js/chroloplethmap.json";
+      vegaEmbed('#choropleth_map', spec2).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+    </script>
+  </div>
+
+  <div id="scatter_plot">
+    <script type="text/javascript">
+      var spec2 = "js/bubbleplot.json";
+      vegaEmbed('#scatter_plot', spec2).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+    </script>
+  </div>
+
+  <div id = "radial_plot">
+    <script type = "text/javascript">
+      var vg_1 = "js/radial.json";
+      vegaEmbed("#radial_plot", vg_1).then(function(result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
-  </script>
+      }).catch(console.error);
+    </script>
+  </div>
 
-  <div id="scatter_plot"></div>
-
-  <script type="text/javascript">
-
-    var spec2 = "js/bubbleplot.json";
-    vegaEmbed('#scatter_plot', spec2).then(function(result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
-  </script>
-
-  <div id = "radial_plot"></div>
-
-  <script type = "text/javascript">
-    var vg_1 = "js/radial.json";
-    vegaEmbed("#radial_plot", vg_1).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-    }).catch(console.error);
-  </script>
+  
 
 </body>
 </html>
