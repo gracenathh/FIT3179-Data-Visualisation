@@ -1,17 +1,43 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title" : {"text": "Ownership Type Proportion"},
-    "width": 200,
+    "width": 400,
     "height": 300,
     "data": {
         "url": "https://raw.githubusercontent.com/gracenathh/FIT3179-Data-Visualisation/main/data/ownershiptype.csv"
     },
-    "mark":"bar",
+    "params": [
+        {
+        "name": "Store_Count",
+        "value": 200,
+        "bind": {
+            "input": "range",
+            "min": 0,
+            "max": 10000,
+            "step": 500,
+            "name": "Minimum Store Number: "
+        }
+    }],
+    "transform": [{"filter": "datum.Count > Store_Count"}],
+    "mark":{"type": "bar", "width": {"band": 0.7}},
     "encoding": {
         "x":{"field":"Ownership Type", "type":"nominal"},
         "y":{"field":"Count", "type": "quantitative"},
         "color" : {"field": "Ownership Type",
-            "scale": {"scheme": "Greens"}
+        "scale": {
+            "domain": [
+                "Company Owned",
+                "Franchise",
+                "Joint Venture",
+                "Licensed"
+            ],
+            "range": [
+                "#009a71",
+                "#ff9c38",
+                "#d13c46",
+                "#fed474"
+            ]
+        }
         },
         "tooltip" : [
             {"field": "Ownership Type", "type": "nominal"},

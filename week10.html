@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  
+</head>
+<body>
+
+    <section class = "hero is-fullheight-with-navbar">
+        <div class="hero-body">
+            <div class="container is-max-widescreen">
+                <div class = "block has-text-centered">
+                  <h1 class = "title is-3 pb-3">Week 10 Homework</h1>
+                  <h2 class = "subtitle is-5 pb-3">Grace Nathania - 30241510</h2>
+                </div>
+          
+                <div class="columns is-8">
+                    <div class="column is-half" id = "bargraph">
+                        <script type="text/javascript">
+                            var bar = "js/bar.json";
+                            vegaEmbed("#bargraph",bar).then(function(result) {
+                            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+                            }).catch(console.error);
+                        </script>
+                    </div>
+
+                    <div class="column is-half" id = "radial_plot">
+                        <script type="text/javascript">
+                            var radial = "js/radial.json";
+                            vegaEmbed("#radial_plot",radial).then(function(result) {
+                            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+                            }).catch(console.error);
+                        </script>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

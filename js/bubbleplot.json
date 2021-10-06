@@ -98,12 +98,12 @@
                         ],
                         "range": [
                             "#fed474",
-                            "#009a71",
+                            "#ff9c38",
                             "#d13c46",
                             "#f53a6b",
                             "#a255ae",
                             "#758fc0",
-                            "#fdba9f",
+                            "#009a71",
                             "#c60729",
                             "#736240",
                             "#949293"
@@ -111,7 +111,7 @@
                     }
                 },
                 "opacity": {
-                    "condition": {"param": "region_highlight", "value": 0.6},
+                    "condition": {"param": "region_highlight", "value": 0.7},
                     "value" : 0.08
                 },
                 "tooltip": [

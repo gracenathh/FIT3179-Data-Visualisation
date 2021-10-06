@@ -14,27 +14,59 @@
         }],
         "groupby": ["Region"]
     }],
-    "layer":[{
-        "mark": {"type": "arc", "innerRadius": 40, "stroke": "#fff"}
-    },{
-        "mark": {"type": "text", "radiusOffset": 30},
-        "encoding": {
-            "text": {"field": "Number of Store", "type": "quantitative"},
-            "color": {"value": "black"},
-            "tooltip" : [
-                {"field": "Region", "type": "nominal"},
-                {"field": "Number of Store", "type": "quantitative", "format": ","}
-            ]
-        }
+    "layer":[
+        {
+            "mark": {"type": "arc", "innerRadius": 40, "stroke": "#fff"}
+        },
+        {
+            "mark": {"type": "text"},
+            "encoding": {
+                "text": {"field": "Region", "type": "nominal"},
+                "color": {"value": "black"},
+                "opacity": {
+                    "condition": {
+                    "test": "datum['Region'] == 'NORTHERN AMERICA' || datum['Region'] == 'ASIA'",
+                    "value": 1
+                    },
+                    "value": 0
+                },
+                "tooltip" : [
+                    {"field": "Region", "type": "nominal"},
+                    {"field": "Number of Store", "type": "quantitative", "format": ","}
+                ]
+            }
     }],
     "encoding": {
         "theta": {"field" : "Number of Store", "type" : "quantitative", "stack" : true},
         "radius": {"field": "Number of Store", 
                     "scale": {"type": "sqrt", "zero": true, "rangeMin": 100}},
-        "color" : {"field": "Region",
-                    "scale": {"scheme": "Greens"},
-                    "legend": null
-                },
+        "color" : {"field": "Region", "type": "nominal",
+        "scale": {
+            "domain": [
+                "ASIA",
+                "COMMONWEALTH OF INDEPENDENT STATES",
+                "EASTERN EUROPE",
+                "LATIN AMERICA & CARIBBEAN",
+                "NEAR EAST",
+                "NORTHERN AFRICA",
+                "NORTHERN AMERICA",
+                "OCEANIA",
+                "SUB-SAHARAN AFRICA",
+                "WESTERN EUROPE"
+            ],
+            "range": [
+                "#fed474",
+                "#ff9c38",
+                "#d13c46",
+                "#f53a6b",
+                "#a255ae",
+                "#758fc0",
+                "#009a71",
+                "#c60729",
+                "#736240",
+                "#949293"
+            ]
+        }},
         "tooltip" : [
             {"field": "Region", "type": "nominal"},
             {"field": "Number of Store", "type": "quantitative", "format": ","}
