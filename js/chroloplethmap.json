@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Number of Starbucks in Each Country in 2017",
+  "title": "Number of Starbucks' Store per 1,000,000 Population in Each Country in 2017",
   "width": 1000,
   "height": 500,
   "data": {
@@ -30,11 +30,11 @@
             "url": "https://raw.githubusercontent.com/gracenathh/FIT3179-Data-Visualisation/main/data/combined-processed.csv"
           },
           "key": "Country",
-          "fields": ["TotalStore"]
+          "fields": ["TotalStore","Population"]
         }
       },
       {"filter": "datum.TotalStore > 0"},
-      {"calculate":"datum.TotalStore", "as" : "Starbucks Count"}
+      {"calculate":"datum.TotalStore/datum.Population * 1000000", "as" : "Store Number"}
     ],
     "projection": {
       "type": "equirectangular"
@@ -44,14 +44,14 @@
       },
     "encoding": {
         "color": {
-            "field": "Starbucks Count",
+            "field": "Store Number",
             "type": "quantitative",
             "scale": {"scheme": "Greens"}
           },
       "tooltip": [
         {"field": "properties.NAME", "type": "nominal", "title": "Country"},
         
-        {"field": "Starbucks Count", "type": "quantitative"}
+        {"field": "Store Number", "type": "quantitative", "format": ".1f"}
       ]
     }
   }

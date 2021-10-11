@@ -1,13 +1,14 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 1000,
-    "height": 500,
-    "title": "GDP x Population x Number of Starbucks",
+    "width": 500,
+    "height": 400,
+    "title": "Do GDP and Population of a Country Affect the Number of Starbucks' Store?",
     "data": {
     "url": "https://raw.githubusercontent.com/gracenathh/FIT3179-Data-Visualisation/main/data/combined-processed.csv"
     },
     "transform": [
         {"filter": "datum.TotalStore > 0"},
+        {"calculate": "datum.TotalStore/datum.Population * 1000000", "as" : "StoreNumber/1000Kpop"},
         {"filter": "region_selection == null || datum.Region == region_selection"}
     ],
     "params": [{
@@ -118,7 +119,8 @@
                     {"field": "Country", "type": "nominal"},
                     {"field": "Population", "type": "quantitative", "format": ","},
                     {"field": "GDP/Capita", "type": "quantitative", "format": ",", "title" : "GDP per Capita"},
-                    {"field": "TotalStore", "type": "quantitative", "title":"Sum of Store"}
+                    {"field": "TotalStore", "type": "quantitative", "title":"Store Number"},
+                    {"field": "StoreNumber/1000Kpop", "type": "quantitative", "title":"Store Number/1000K Population","format":".1f"}
                 ]
             }
         },
@@ -145,7 +147,8 @@
                 {"field": "Country", "type": "nominal"},
                 {"field": "Population", "type": "quantitative", "format": ","},
                 {"field": "GDP/Capita", "type": "quantitative", "format": ",", "title" : "GDP per Capita"},
-                {"field": "TotalStore", "type": "quantitative", "title":"Number of Store"}
+                {"field": "TotalStore", "type": "quantitative", "title":"Store Number"},
+                {"field": "StoreNumber/1000Kpop", "type": "quantitative", "title":"Store Number/1000K Population", "format":".1f"}
             ]
 
             }

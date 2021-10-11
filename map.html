@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <nav class="navbar has-shadow has-text-white" role="navigation" aria-label="main navigation" style="background-color: darkgreen;">
+    <nav class="navbar has-shadow is-success" role="navigation" aria-label="main navigation" style="background-color: darkgreen;">
         <div class="navbar-brand">
           <p class = "has-text-weight-medium my-auto ml-5">FIT3179 - Visualisation 2</p>
       
@@ -40,16 +40,16 @@
       
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-end">
-            <a href = "index.html" class="navbar-item  has-text-white">
+            <a href = "index.html" class="navbar-item">
               Home
             </a>
-            <a href = "map.html" class="navbar-item has-text-weight-semibold has-text-white">
+            <a href = "map.html" class="navbar-item has-text-weight-semibold">
               Store Distribution
             </a>
-            <a href = "correlation.html" class="navbar-item has-text-white">
+            <a href = "correlation.html" class="navbar-item">
               Correlation
             </a>
-            <a href = "proportion.html" class="navbar-item has-text-white">
+            <a href = "proportion.html" class="navbar-item">
               Proportion
             </a>
           </div>
@@ -72,16 +72,19 @@
             California, with 1,863 locations, has more stores than any other state.  
           </p>
         </div>
+
+        <div id="choropleth_map" class = "mt-6 mb-0">        
+            <script type="text/javascript">
+                var spec2 = "js/chroloplethmap.json";
+                vegaEmbed('#choropleth_map', spec2).then(function(result) {
+                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+                }).catch(console.error);
+            </script>
+        </div>
+
     </div>
 
-    <div id="choropleth_map" class = "container mt-6 mb-0" style = "width: 70%;">        
-        <script type="text/javascript">
-            var spec2 = "js/chroloplethmap.json";
-            vegaEmbed('#choropleth_map', spec2).then(function(result) {
-            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-            }).catch(console.error);
-        </script>
-    </div>
+    
 
   <footer class="footer">
     <div class="content has-text-centered">
