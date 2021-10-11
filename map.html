@@ -1,0 +1,98 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GRACE NATHANIA</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="css/flipcard.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <!--<link rel="stylesheet" href="styles/debug.css">-->
+      <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    
+    <script defer src = "js/nav-burger.js"></script>
+    <style>
+    #choropleth_map { 
+        display: block;
+        left: auto;
+        right: auto;
+        bottom: 0;
+        height: 600px;
+    }
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar has-shadow has-text-white" role="navigation" aria-label="main navigation" style="background-color: darkgreen;">
+        <div class="navbar-brand">
+          <p class = "has-text-weight-medium my-auto ml-5">FIT3179 - Visualisation 2</p>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-end">
+            <a href = "index.html" class="navbar-item  has-text-white">
+              Home
+            </a>
+            <a href = "map.html" class="navbar-item has-text-weight-semibold has-text-white">
+              Store Distribution
+            </a>
+            <a href = "correlation.html" class="navbar-item has-text-white">
+              Correlation
+            </a>
+            <a href = "proportion.html" class="navbar-item has-text-white">
+              Proportion
+            </a>
+          </div>
+        </div>
+      </nav>
+
+    <div class = "container is-max-widescreen mt-6">
+        <div class = "block has-text-centered">
+          <h1 class = "title"> 
+            Starbucks Store Around the World
+          </h1>
+          <p class = "subtitle pt-2 is-size-6" >
+            As of 29 March 2021, Starbucks is <strong>the largest coffee house company</strong> in the world, with 32,938 retail locations as of the first 
+            quarter of 2021, followed distantly by coffee shop chains such as Dunkin Donuts with about 10,000 restaurants, 
+            Tim Hortons with 4,300 outlets, and Costa Coffee with nearly 1,700 stores worldwide. 
+        </br></br>
+            Starbucks' international footprint has expanded to 24,058 stores worldwide since first expanding outside the US market in 1996, 
+            with stores located in three main markets: <strong>the Americas</strong>, which includes Canada, Latin America, and the US; <strong>China and the Asia 
+            Pacific (CAP)</strong>; and <strong>the Middle East and Africa (EMEA)</strong>. The domestic market still represents more than half of all Starbucks stores; 
+            California, with 1,863 locations, has more stores than any other state.  
+          </p>
+        </div>
+    </div>
+
+    <div id="choropleth_map" class = "container mt-6 mb-0" style = "width: 70%;">        
+        <script type="text/javascript">
+            var spec2 = "js/chroloplethmap.json";
+            vegaEmbed('#choropleth_map', spec2).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+            }).catch(console.error);
+        </script>
+    </div>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        ©2021, Grace Nathania - 30241510</br>
+        <a href = "#"><strong>Back to Top</strong></a></br>
+        <a href = "index.html"><strong>← Go Back to Home</strong> | </a>
+        <a href = "correlation.html"><strong>Go to Correlation →</strong></a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

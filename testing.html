@@ -7,18 +7,17 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
   
   <!-- CSS file -->
-  <style>
-        #choropleth_map {
-        top:100px;
-        bottom: 100px; 
-        left: 100px;
-        right: 100px;
-        /*height: 1000px;
-        width: 800px;*/
-    }
-  </style>
+
 </head>
 <body>
+  <div id="choropleth_map">
+    <script type="text/javascript">
+      var spec2 = "js/chroloplethmap.json";
+      vegaEmbed('#choropleth_map', spec2).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      }).catch(console.error);
+    </script>
+  </div>
 
   <div id="radialplot">
     <script type="text/javascript">
@@ -56,15 +55,6 @@
   
       var spec2 = "js/bar.json";
       vegaEmbed('#bargraph', spec2).then(function(result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
-    </script>
-  </div>
-  
-  <div id="choropleth_map">
-    <script type="text/javascript">
-      var spec2 = "js/chroloplethmap.json";
-      vegaEmbed('#choropleth_map', spec2).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
       }).catch(console.error);
     </script>
