@@ -14,16 +14,6 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
     
     <script defer src = "js/nav-burger.js"></script>
-    <style>
-    #choropleth_map { 
-        display: block;
-        left: auto;
-        right: auto;
-        bottom: 0;
-        height: 600px;
-    }
-
-    </style>
 </head>
 
 <body>
@@ -43,16 +33,15 @@
             <a href = "index.html" class="navbar-item">
               Home
             </a>
-            <a href = "map.html" class="navbar-item has-text-weight-semibold">
+            <a href = "map.html" class="navbar-item">
               Store Distribution
             </a>
             <a href = "correlation.html" class="navbar-item">
               Correlation
             </a>
-            <a href = "proportion.html" class="navbar-item">
+            <a href = "proportion.html" class="navbar-item has-text-weight-semibold">
               Proportion
             </a>
-
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">
                   Homework
@@ -67,6 +56,8 @@
                   </a>
                 </div>
               </div>
+
+
           </div>
         </div>
       </nav>
@@ -74,40 +65,46 @@
     <div class = "container is-max-widescreen mt-6">
         <div class = "block has-text-centered">
           <h1 class = "title"> 
-            Starbucks Store Around the World
+            Proportion of Ownership Type and of Store Number in Different Region
           </h1>
           <p class = "subtitle pt-2 is-size-6" >
-            As of 29 March 2021, Starbucks is <strong>the largest coffee house company</strong> in the world, with 32,938 retail locations as of the first 
-            quarter of 2021, followed distantly by coffee shop chains such as Dunkin Donuts with about 10,000 restaurants, 
-            Tim Hortons with 4,300 outlets, and Costa Coffee with nearly 1,700 stores worldwide. 
-        </br></br>
-            Starbucks' international footprint has expanded to 24,058 stores worldwide since first expanding outside the US market in 1996, 
-            with stores located in three main markets: <strong>the Americas</strong>, which includes Canada, Latin America, and the US; <strong>China and the Asia 
-            Pacific (CAP)</strong>; and <strong>the Middle East and Africa (EMEA)</strong>. The domestic market still represents more than half of all Starbucks stores; 
-            California, with 1,863 locations, has more stores than any other state.  
+            Starbucks operates two types of stores: <strong>company-owned, licensed, joint venture, and licensed</strong>. 
+            Currently, the store count is <strong>almost equally distributed</strong> among these types and even under continuous expansion.
+            During the first quarter of 2021, Starbucks launched 278 new stores. The company's growth is bolstered by a low turnover of its stores.
+            Only 443 Starbucks stores have closed throughout the company's history: 240 stores in 2009, the year of the global financial crisis; 42, 
+            in 2010; and 161 in 2011.</br></br>
           </p>
         </div>
 
-        <div id="choropleth_map" class = "mt-6 mb-0">        
-            <script type="text/javascript">
-                var spec2 = "js/chroloplethmap.json";
-                vegaEmbed('#choropleth_map', spec2).then(function(result) {
-                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-                }).catch(console.error);
-            </script>
+        <div class="columns is-2 mt-5 mb-5">
+            <div class="column" id = "bargraph">
+                <script type="text/javascript">
+                    var bar = "js/radial-to-bar.json";
+                    vegaEmbed("#bargraph",bar).then(function(result) {
+                    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+                    }).catch(console.error);
+                </script>
+            </div>
+
+            <div class="column" id = "radial_plot">
+                <script type="text/javascript">
+                    var radial = "js/bar-to-radial.json";
+                    vegaEmbed("#radial_plot",radial).then(function(result) {
+                    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+                    }).catch(console.error);
+                </script>
+            </div>
+
         </div>
 
     </div>
-
-    
 
   <footer class="footer">
     <div class="content has-text-centered">
       <p>
         ©2021, Grace Nathania - 30241510</br>
         <a href = "#" style = "color: darkgreen"><strong>Back to Top</strong></a></br>
-        <a href = "index.html" style = "color: darkgreen"><strong>← Go Back to Home</strong> | </a>
-        <a href = "correlation.html" style = "color: darkgreen"><strong>Go to Correlation →</strong></a>
+        <a href = "correlation.html" style = "color: darkgreen"><strong>← Go Back to Store Correlation</strong>
       </p>
     </div>
   </footer>

@@ -15,7 +15,7 @@
     ],
     "encoding": {
         "x" : {
-            "field" : "Phones", "type": "ordinal", "title":"Phones/1K"
+            "field" : "Phones", "type": "ordinal","title":"Phones/1K"
         },
         "y" : {
             "field" : "Literacy", "type":"ordinal","sort": "descending"

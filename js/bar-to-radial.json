@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title" : {"text": "Ownership Type Proportion"},
-    "width": 400, "height": 300,
+    "width": 400, "height": 400,
     "data": {
         "url": "https://raw.githubusercontent.com/gracenathh/FIT3179-Data-Visualisation/main/data/ownershiptype.csv"
     },
@@ -43,6 +43,11 @@
             {"field": "Ownership Type", "type": "nominal"},
             {"field": "Count", "type": "quantitative","format": ","}
         ]
-    }
+    },
+    "config": {
+        "view": {
+           "stroke": "transparent"
+        }
+      }
 
 }

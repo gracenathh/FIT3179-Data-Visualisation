@@ -6,19 +6,32 @@
     "data": {
         "url": "https://raw.githubusercontent.com/gracenathh/FIT3179-Data-Visualisation/main/data/combined-processed.csv"
     },
+    "params": [
+        {
+        "name": "Store_Count",
+        "value": 0,
+        "bind": {
+            "input": "range",
+            "min": 0,
+            "max": 7000,
+            "step": 500,
+            "name": "Minimum Store Number: "
+        }
+    }],
     "transform": [
         {"filter": "datum.TotalStore > 0"},
         {"aggregate": [{
             "op": "sum",
             "field" : "TotalStore",
-            "as" : "Number of Store"
+            "as" : "NumberofStore"
         }],
         "groupby": ["Region"]
-    }],
+    },
+    {"filter": "datum.NumberofStore > Store_Count"}],
     "mark":{"type": "bar", "width": {"band": 1}},
     "encoding": {
         "x":{"field":"Region", "type":"nominal"},
-        "y":{"field":"Number of Store", "type": "quantitative"},
+        "y":{"field":"NumberofStore", "type": "quantitative", "title": "Number of Store"},
         "color" : {"field": "Region",
         "scale": {
             "domain": [
@@ -49,7 +62,7 @@
         },
         "tooltip" : [
             {"field": "Region", "type": "nominal"},
-            {"field": "Number of Store", "type": "quantitative", "format": ","}
+            {"field": "NumberofStore", "type": "quantitative", "format": ",", "title": "Number of Store"}
         ]
     }
 }
