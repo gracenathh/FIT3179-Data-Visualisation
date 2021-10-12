@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title" : {"text": "Number of Starbucks Stores at Each Region"},
+    "title" : {"text": "Number of Starbucks Stores at Each Region (2017)"},
     "width": 300,
     "height": 300,
     "data": {

@@ -1,10 +1,13 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title" : {"text": "Ownership Type Proportion"},
+    "title" : {"text": "Ownership Type Proportion (2017)"},
     "width": 400, "height": 400,
     "data": {
         "url": "https://raw.githubusercontent.com/gracenathh/FIT3179-Data-Visualisation/main/data/ownershiptype.csv"
     },
+    "transform": [
+        {"calculate": "datum.Count/25597*100", "as" : "Percentage"}
+    ],
     "layer":[
         {
             "mark": {"type": "arc", "innerRadius": 40, "stroke": "#fff"}
@@ -41,7 +44,8 @@
         }},
         "tooltip" : [
             {"field": "Ownership Type", "type": "nominal"},
-            {"field": "Count", "type": "quantitative","format": ","}
+            {"field": "Count", "type": "quantitative","format": ","},
+            {"field": "Percentage", "type": "quantitative","format": ".1f", "title":"Percentage %"}
         ]
     },
     "config": {
