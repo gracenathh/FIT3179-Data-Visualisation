@@ -1,84 +1,301 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-  
-  <!-- CSS file -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Starbucks and The World</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="css/flipcard.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <link rel="icon" href="images/sbuxlogo.png">
 
+    <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    
+    <script defer src = "js/nav-burger.js"></script>
+    <style>
+    #choropleth_map { 
+        display: block;
+        left: auto;
+        right: auto;
+        bottom: 0;
+        height: 600px;
+    }
+
+    #scatter_plot { 
+        display: block;
+        left: auto;
+        right: auto;
+        bottom: 0;
+        height: 550px;
+    }
+
+    #heatmap { 
+        display: block;
+        left: auto;
+        right: auto;
+        bottom: 0;
+    }
+
+    .hero{
+  background: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url(images/starbucks-coffee-building.jpg) center / cover;
+      }
+
+    </style>
 </head>
+
 <body>
-  <div id="choropleth_map">
-    <script type="text/javascript">
-      var spec2 = "js/chroloplethmap.json";
-      vegaEmbed('#choropleth_map', spec2).then(function(result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
-    </script>
-  </div>
+    <nav class="navbar has-shadow is-success" role="navigation" aria-label="main navigation" style="background-color: darkgreen;">
+        <div class="navbar-brand">
+          <p class = "has-text-weight-medium my-auto ml-5">GRACE NATHANIA - 30241510</p>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      </nav>
 
-  <div id="radialplot">
-    <script type="text/javascript">
+      <section class = "hero is-fullheight-with-navbar">
+        <div class="hero-body">
+          <div class="container is-max-widescreen">
+            <div class = "block has-text-centered has-text-white">
+              <h1 class = "title is-1 has-text-white">STARBUCKS AND THE WORLD</h1>
+              <h3 class = "subtitle is-3 has-text-white mb-1">Are you a truly Starbucks fan?</h3>
+              <p class = "is-size-6 mt-0 pt-0">flip the card for answer!</p>
+            </div>
+      
+            <div class="columns is-multiline is-3 mt-3">
+              <div class="column is-one-third">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <p class = "has-text-weight-medium is-size-5 mx-4">Where Starbucks is orginated from?</p>
+                    </div>
+                    <div class="flip-card-back">
+                      <p class = "has-text-weight-medium is-size-3 mx-4" style = "color:white">America</p>
+                      <a href = "#mapk" class="button is-small">Store Distribution on Map</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="column is-one-third">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <p class = "has-text-weight-medium is-size-5 mx-4">What were the job of Starbucks' founders?</p>
+                    </div>
+                    <div class="flip-card-back">
+                      <p class = "has-text-weight-medium is-size-5 mx-5" style = "color:white">Teacher (Jerry Baldwin and Zev Siegl) and writer (Gordon Bowker)</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="column is-one-third">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <p class = "has-text-weight-medium is-size-5 mx-4">How big is Starbucks' Trenta size cup?</p>
+                    </div>
+                    <div class="flip-card-back">
+                      <p class = "has-text-weight-medium is-size-5 mx-5" style = "color:white">
+                        Bigger than your stomach with the capacity to hold 916 milliliters.</br>The stomach on average has a capacity of 900 ml.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="column is-one-third">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <p class = "has-text-weight-medium is-size-5 mx-4">How many possible drink combinations can Starbucks make?</p>
+                      
+                    </div>
+                    <div class="flip-card-back">
+                      <p class = "has-text-weight-medium is-size-5 mx-4" style = "color:white">Over 87,000 possible drink combinations</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="column is-one-third">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <p class = "has-text-weight-medium is-size-5 mx-4">True/False:</br>
+                        Starbucks spends more on healthcare insurance for its employees than on coffee beans
+                      </p>
+                    </div>
+                    <div class="flip-card-back">
+                      <p class = "has-text-weight-medium is-size-3 mx-5" style = "color:white">True</p>
+                      <a href = "#correlation" class="button is-small">Countries' Profile vs Starbucks' Store</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="column is-one-third">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <p class = "has-text-weight-medium is-size-5 mx-4"> What is the average of new Starbucks' store on daily basis?</p>
+                    </div>
+                    <div class="flip-card-back">
+                      <p class = "has-text-weight-medium is-size-4 mx-5" style = "color:white">Two stores every day</p>
+                      <a href = "#proportion" class="button is-small">Stores Proportion and Distribution</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+
+    <div id = "map" class = "container is-max-widescreen mt-6">
+        <div class = "block has-text-centered">
+          <h1 class = "title" style = "color: darkgreen"> 
+            Starbucks Store Around the World
+          </h1>
+          <p class = "subtitle pt-2 mt-3" style = "font-size: 16.5px;">
+            As of 29 March 2021, Starbucks is <strong>the largest coffee house company</strong> in the world, with 32,938 retail locations in the first 
+            quarter of 2021, followed distantly by coffee shop chains such as Dunkin Donuts with about 10,000 restaurants, 
+            Tim Hortons with 4,300 outlets, and Costa Coffee with nearly 1,700 stores worldwide. 
+        </br></br>
+            Starbucks' international footprint has expanded to 24,058 stores worldwide since first expanding outside the US market in 1996, 
+            with stores located in three main markets: <strong>the Americas</strong>, which includes Canada, Latin America, and the US; <strong>China and the Asia 
+            Pacific (CAP)</strong>; and <strong>the Middle East and Africa (EMEA)</strong>. The domestic market still represents more than half of all Starbucks stores; 
+            California, with 1,863 locations, has more stores than any other state.  
+          </p>
+        </div>
+
+        <div id="choropleth_map" class = "mt-6 mb-0">        
+            <script type="text/javascript">
+                var spec2 = "js/chroloplethmap.json";
+                vegaEmbed('#choropleth_map', spec2).then(function(result) {
+                // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+                }).catch(console.error);
+            </script>
+        </div>
+    </div>
+
+    <div id = "correlation" class = "container is-max-widescreen">
+      <div class = "block has-text-centered">
+        <h1 class = "title" style = "color: darkgreen"> 
+          How Does Countries' Profile Affect the Number of Starbucks' Store?
+        </h1>
+        <p class = "subtitle pt-2 mt-3" style = "font-size: 16.5px;">
+          Starbucks was founded in 1971 in Seattle, Washington, and incorporated on November 4, 1985, to become <strong> publicly traded </strong>Starbucks Corporation.
+          Based on the company's positive, sustained operating results, it is ranked among <strong>Forbes' Top-500 world's biggest public companies</strong>. 
+          In addition, Starbucks seeks to support the farming communities it works with through a number of non-governmental organizations with 
+          programs designed to <strong> economic and social development</strong>. </br></br>
+        </p>
+      </div>
+
+      <div class="columns">
+          <div class="column" id = "scatter_plot">
+              <script type="text/javascript">
+                  var spec2 = "js/bubbleplot.json";
+                  vegaEmbed('#scatter_plot', spec2).then(function(result) {
+                  // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+                  }).catch(console.error);
+              </script>
+          </div>
   
-      var spec2 = "js/bar-to-radial.json";
-      vegaEmbed('#radialplot', spec2).then(function(result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
-    </script>
+          <div class="column">
+              <p>
+                  Looking at a bubble plot on the left, <strong class = "has-text-weight-semibold" style="background:#e8ffe8">the smaller 
+                  the population of a country is, the less number of Starbucks' stores exist</strong>. However, 
+                  <strong class = "has-text-weight-semibold">GDP per capita does not really affect</strong> the number
+                  of stores in a country as there exist a country with less population yet higher store number.
+                  This also implies that <strong  class = "has-text-weight-semibold" style="background:#e8ffe8"> the existence of Starbucks' 
+                  stores in a country does not contribute to the economic</strong> of a country and <strong class = "has-text-weight-semibold">the only variable 
+                  affecting</strong> the store number is <strong class = "has-text-weight-semibold">the population</strong>.
+                  </br></br>
+                  <p class ="is-size-7" style="font-style: italic;">*Click on region legend to only highlight countries in the region</p>
+              </p>
+          </div>
+      </div>
+
+      <div class="columns mt-0 pt-0 mb-5">
+          <div class="column pt-5">
+              <p>
+                  Looking at the <strong  class = "has-text-weight-semibold" style="background:#e8ffe8">literacy rate of a country and the 
+                  assumption of literate people, who have phone, can access the internet</strong>,
+                  the heatmap on the right serves the purpose to tell if these two factors affecting the number of Starbucks' store in a country.
+                  </br></br>
+                  On the top left corner, there are some blocks with darker color indicating high store number per 1000K population, which means that 
+                  <strong  class = "has-text-weight-semibold" style="background:#e8ffe8">high literacy score and high phones number per 1K 
+                      population affect the store number</strong>. Although there exist two countries with high 
+                  store number, Kuwait and United Arab Emirates, they are just a rare case.
+              </p>
+          </div>
+
+          <div class="column" id = "heatmap">
+              <script type="text/javascript">
+                  var spec2 = "js/heatmap.json";
+                  vegaEmbed('#heatmap', spec2).then(function(result) {
+                  // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+                  }).catch(console.error);
+              </script>
+          </div>
+      </div>
+
+    </div>
+
+    <div id = "proportion" class = "container is-max-widescreen mt-6">
+      <div class = "block has-text-centered">
+        <h1 class = "title"  style = "color: darkgreen"> 
+          Proportion of Ownership Type and of Store Number in Different Region
+        </h1>
+        <p class = "subtitle pt-2 mt-3" style = "font-size: 16.5px;">
+          Starbucks operates four types of stores: <strong>company-owned, licensed, joint venture, and licensed</strong>. 
+          Currently, the store count is <strong>almost equally distributed between company-owned and licensed</strong>.
+          Even so, the numbers of other ownership types are <strong>continuous expansion</strong>.
+          During the first quarter of 2021, Starbucks launched 278 new stores. The company's growth is bolstered by a low turnover of its stores.
+          Only 443 Starbucks stores have closed throughout the company's history: 240 stores in 2009, the year of the global financial crisis; 42, 
+          in 2010; and 161 in 2011.</br></br>
+        </p>
+      </div>
+
+      <div class="columns is-2 mt-5 mb-5">
+          <div class="column" id = "bargraph">
+              <script type="text/javascript">
+                  var bar = "js/radial-to-bar.json";
+                  vegaEmbed("#bargraph",bar).then(function(result) {
+                  // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+                  }).catch(console.error);
+              </script>
+          </div>
+
+          <div class="column" id = "radial_plot">
+              <script type="text/javascript">
+                  var radial = "js/bar-to-radial.json";
+                  vegaEmbed("#radial_plot",radial).then(function(result) {
+                  // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+                  }).catch(console.error);
+              </script>
+          </div>
+
+      </div>
+
   </div>
 
-  <div id="bar_graph">
-    <script type="text/javascript">
-  
-      var spec2 = "js/radial-to-bar.json";
-      vegaEmbed('#bar_graph', spec2).then(function(result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
-    </script>
-  </div>
-
-  <div id="heatmap">
-    <script type="text/javascript">
-  
-      var spec2 = "js/heatmap.json";
-      vegaEmbed('#heatmap', spec2).then(function(result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
-    </script>
-  </div>
-
-
-  <div id="bargraph">
-    <script type="text/javascript">
-  
-      var spec2 = "js/bar.json";
-      vegaEmbed('#bargraph', spec2).then(function(result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
-    </script>
-  </div>
-
-  <div id="scatter_plot">
-    <script type="text/javascript">
-      var spec2 = "js/bubbleplot.json";
-      vegaEmbed('#scatter_plot', spec2).then(function(result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
-    </script>
-  </div>
-
-  <div id = "radial_plot">
-    <script type = "text/javascript">
-      var vg_1 = "js/radial.json";
-      vegaEmbed("#radial_plot", vg_1).then(function(result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      }).catch(console.error);
-    </script>
-  </div>
-
-  
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        ©2021, Grace Nathania - 30241510</br>
+        <a href = "#" style = "color: darkgreen"><strong>Back to Top</strong></a>
+      </p>
+    </div>
+  </footer>
 
 </body>
 </html>
