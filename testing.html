@@ -13,8 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-    
-    <script defer src = "js/nav-burger.js"></script>
+  
     <style>
     #choropleth_map { 
         display: block;
@@ -47,13 +46,23 @@
 </head>
 
 <body>
-      <section class = "hero is-fullheight">
+  <nav class="navbar has-shadow is-success" role="navigation" aria-label="main navigation" style="background-color: darkgreen;">
+    <div class="navbar-brand">
+      <p class = "my-auto ml-5">Visualisation by <strong class = "has-text-white has-text-weight-semibold">Grace Nathania (30241510)</strong></p>
+    </div>
+
+  </nav>
+
+      <section class = "hero is-fullheight-with-navbar">
         <div class="hero-body">
           <div class="container is-max-widescreen">
             <div class = "block has-text-centered has-text-white">
               <h1 class = "title is-1 has-text-white">STARBUCKS AND THE WORLD</h1>
               <h3 class = "subtitle is-3 has-text-white mb-1">Are you a truly Starbucks fan?</h3>
-              <p class = "is-size-6 mt-0 pt-0">flip the card for answer!</p>
+            </div>
+
+            <div class = "block has-text-centered has-text-white">
+              <p class = "is-size-6 mt-0 pt-0">Flip the card for answer!</p>
             </div>
       
             <div class="columns is-multiline is-3 mt-3">
